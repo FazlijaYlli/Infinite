@@ -16,17 +16,27 @@ var way = "1";
  */
 function showHide(sectionToHide, sectionToShow) {
 
-    document.getElementById(sectionToHide).style.display = "none";
-    document.getElementById(sectionToShow).style.display = "block";
-    way += sectionToShow.substring(sectionToShow.length - 1, sectionToShow.length);
+    document.getElementById("question" + sectionToHide).style.display = "none";
+    document.getElementById("question" + sectionToShow).style.display = "block";
+    way += "." + sectionToShow;
+
     console.log(way);
 }
 
 function returnToLastQuestion() {
-    document.getElementById("question" + way.substring(way.length - 1, way.length)).style.display = "none";
+
+    waySplit = way.split('.');
+
+    document.getElementById("question" + waySplit[waySplit.length - 1]).style.display = "none";
+
+    way = "";
+    for (i = 0; i < waySplit.length - 1; i++) {
+        way += waySplit[i] + ".";
+    }
 
     way = way.substring(0, way.length-1);
 
-    document.getElementById("question" + way.substring(way.length - 1, way.length)).style.display = "block";
+    document.getElementById("question" + waySplit[waySplit.length - 2]).style.display = "block";
 
+    console.log(way);
 }

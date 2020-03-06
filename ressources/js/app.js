@@ -5,6 +5,7 @@
     Description : page de script du projet Infinite
 */
 
+var way = "1";
 
 
 
@@ -17,4 +18,15 @@ function showHide(sectionToHide, sectionToShow) {
 
     document.getElementById(sectionToHide).style.display = "none";
     document.getElementById(sectionToShow).style.display = "block";
+    way += sectionToShow.substring(sectionToShow.length - 1, sectionToShow.length);
+    console.log(way);
+}
+
+function returnToLastQuestion() {
+    document.getElementById("question" + way.substring(way.length - 1, way.length)).style.display = "none";
+
+    way = way.substring(0, way.length-1);
+
+    document.getElementById("question" + way.substring(way.length - 1, way.length)).style.display = "block";
+
 }

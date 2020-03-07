@@ -2,19 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link type ="text/css" rel="stylesheet" href="main.css">
         <script type="text/javascript" src="app.js"></script>
         <title>Algorithme de décisions</title>
     </head>
 
     <body>
-        <button>Rouge</button>
-        <button>Vert</button>
         <script>
-        choice = new Choice();
-        console.log("Created object Choice")
-        console.log(choice.GetShape)
-        console.log(choice.GetColor)
-        myFruits.forEach(element => Update(element));
+            //Tableau de mes fruits possèdants différentes propriétés.
+            var myFruits = [
+                new Fruit(name.REDAPPLE,shape.ROUND,color.RED,size.NORMAL),
+                new Fruit(name.GREENAPPLE,shape.ROUND,color.GREEN,size.NORMAL),
+                new Fruit(name.PEAR,shape.CURVY,color.GREEN,size.NORMAL),
+                new Fruit(name.CUCUMBER,shape.CURVY,color.GREEN,size.NORMAL),
+                new Fruit(name.CARROT,shape.STRAIGHT,color.ORANGE,size.NORMAL),
+                new Fruit(name.CHERRYTOMATO,shape.ROUND,color.RED,size.NORMAL),
+                new Fruit(name.TOMATO,shape.ROUND,color.RED,size.SMALL),
+                new Fruit(name.BANANA,shape.CURVY,color.YELLOW,size.NORMAL),
+                new Fruit(name.WATERMELON,shape.ROUND,color.GREEN,size.BIG)
+            ];
+            //Création de l'objet choix.
+            choice = new Choice();
+            ChoiceColor();
         </script>
     </body>
 </html>

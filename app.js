@@ -41,7 +41,6 @@ class Fruit {
         this._shape = shape;
         this._color = color;
         this._size = size;
-        this._goodChoice = false;
     }
 
     get GetName() {
@@ -56,7 +55,7 @@ class Fruit {
         return this._shape;
     }
 
-    get GetShape() {
+    get GetSize() {
         return this._size;
     }
 }
@@ -92,41 +91,66 @@ function Update(element) {
     var correctShape = false;
     var correctSize = false;
 
-    if (element._shape == choice._shape) {
+    if (element.GetShape === choice._shape) {
         correctShape = true;
     }
 
-    if (element._color == choice._color) {
+    if (element.GetColor === choice._color) {
         correctColor = true;
     }
 
-    if (element._size == choice._size) {
+    if (element.GetSize === choice._size) {
         correctSize = true;
     }
 
-    if (correctColor == true) {
+    if ((correctColor === true) && (correctShape === true)) {
         document.write("La recherche a trouvé : " + element.GetName + "<br>")
     }
 }
 
-function ChoiceColor() {
-    var buttonColorRed = document.createElement("button");
-    buttonColorRed.innerHTML = "RED";
+function NextChoice() {
     var body = document.getElementsByTagName("body")[0];
-    body.appendChild(buttonColorRed);
-    buttonColorRed.addEventListener("click", function() {
-        choice.SetColor = color.RED; console.log("Bouton rouge appuyé");
-        myFruits.forEach(element => Update(element));
-    });
+    if (choice._color === color.EMPTY) {
+        var buttonColorRed = document.createElement("button");
+        buttonColorRed.innerHTML = "RED";
+        body.appendChild(buttonColorRed);
+        buttonColorRed.addEventListener("click", function() {
+            choice.SetColor = color.RED; console.log("Bouton rouge appuyé");
+            myFruits.forEach(element => Update(element));
+            buttonColorRed.remove();
+            buttonColorGreen.remove();
+            NextChoice();
+        });
+    
+        var buttonColorGreen = document.createElement("button");
+        buttonColorGreen.innerHTML = "GREEN";
+        body.appendChild(buttonColorGreen);
+        buttonColorGreen.addEventListener("click", function() {
+            choice.SetColor = color.GREEN; console.log("Bouton vert appuyé");
+            myFruits.forEach(element => Update(element));
+            buttonColorGreen.remove();
+            buttonColorRed.remove();
+            NextChoice();
+        });
+    }
 
-    var buttonColorGreen = document.createElement("button");
-    buttonColorGreen.innerHTML = "GREEN";
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(buttonColorGreen);
-    buttonColorGreen.addEventListener("click", function() {
-        choice.SetColor = color.GREEN; console.log("Bouton vert appuyé");
-        myFruits.forEach(element => Update(element));
-    });
+    if (choice._color !== shape.EMPTY) {
+        var buttonShapeRound = document.createElement("button");
+        buttonShapeRound.innerHTML = "ROUND";
+        body.appendChild(buttonShapeRound);
+        buttonShapeRound.addEventListener("click", function() {
+            choice.SetShape = shape.ROUND; console.log("Bouton Rond appuyé");
+            myFruits.forEach(element => Update(element));
+        });
+    
+        var buttonShapeCurvy = document.createElement("button");
+        buttonShapeCurvy.innerHTML = "CURVY";
+        body.appendChild(buttonShapeCurvy);
+        buttonShapeCurvy.addEventListener("click", function() {
+            choice.SetShape = shape.CURVY; console.log("Bouton Curvé appuyé");
+            myFruits.forEach(element => Update(element));
+        });
+    }
 }
 
 

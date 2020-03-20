@@ -1,2 +1,2 @@
 # Infinite
-Git for creating a choice algorithm for a medical website.
+Git for creating a choice tree for a medical website.

@@ -8,7 +8,6 @@
 var way = "1";
 
 
-
 /**
  * permet d'afficher et de cacher des sections
  * @param {*} sectionToHide la section a cacher

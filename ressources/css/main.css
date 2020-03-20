@@ -1,9 +1,14 @@
 
 
+body {
+    padding-top: 56px;
+}  
 
-div {
+
+.question {
     display: none;
 }
+
 
 #question1 {
     display: block;
